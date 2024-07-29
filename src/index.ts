@@ -8,6 +8,8 @@ import myRestaurantRoute from "./routes/MyRestaurantRoute"
 import mongoose from "mongoose";
 
 import {v2 as cloudinary} from "cloudinary"
+import restaurantRoute from "./routes/RestaurantRoute"
+
 
 mongoose.connect(process.env.MONGODB_CONENCTION_STRING as string)
 .then(()=>{
@@ -43,7 +45,7 @@ app.get("/health",async (req:Request,res:Response)=>{
 
 app.use("/api/my/user",myUserRoute)
 app.use("/api/my/restaurant",myRestaurantRoute)
-
+app.use("/api/restaurant",restaurantRoute)
 app.listen(8800,()=>{
 
     console.log(`server started on localhost:8800`)
